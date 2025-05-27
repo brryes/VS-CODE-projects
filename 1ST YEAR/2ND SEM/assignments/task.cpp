@@ -1,0 +1,65 @@
+// #include<iostream>
+
+// using namespace std;
+// int main(){
+//     int arr[10];
+
+// for (int i = 0; i < 10; i++){
+//     cout<<"enter num: " ;
+//     cin>>arr[i];
+
+// }
+// for (int i = 0; i < 10; i++){
+//     if (arr[i] %2 != 0)
+//     cout<<arr[i] << " ";
+// }
+// }
+
+// C++ program to sort an Array of 
+// Strings according to their lengths
+#include<iostream>
+using namespace std;
+ 
+// Function to print the sorted array of string
+void printArraystring(string,int);
+ 
+// Function to Sort the array of string according to lengths. This function implements Insertion Sort. 
+void sort(string s[], int n)
+{
+    for (int i=1 ;i<n; i++)
+    {
+        string temp = s[i];
+ 
+        // Insert s[j] at its correct position
+        int j = i - 1;
+        while (j >= 0 && temp.length() < s[j].length())
+        {
+            s[j+1] = s[j];
+            j--;
+        }
+        s[j+1] = temp;
+    }
+}
+  
+// Function to print the sorted array of string
+void printArraystring(string str[], int n)
+{
+    for (int i=0; i<n; i++)
+        cout << str[i] << " ";
+}
+ 
+// Driver function
+int main()
+{
+    string arr[] = {"Apple", "Crocodile", "gumamela", "orange", "mango"};
+    int n = sizeof(arr)/sizeof(arr[0]);
+    
+     
+    // Function to perform sorting
+    sort(arr, n);
+ 
+    // Calling the function to print result
+    printArraystring(arr, n);
+     
+    return 0;
+}
